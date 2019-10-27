@@ -1,11 +1,11 @@
 const Plugin = require("../plugin");
 let contM = {}, iteM = {}, buttM = {}, cM, eM, dM, ree;
 module.exports = new Plugin({
-	name: "Leonhart", /* Human-readable plugin name. */
-	author: "Darii", /* [Optional] Put your name here to give yourself credit for making it :) */
-	description: "Does your timers on Cntr + b", /* Description of what this plugin does. */
-	preload: false, /* [Optional] If true, load this before Discord has finished starting up */
-	color: "#f44336", /* [Optional] The color that this plugin shows in logs and in the plugin settings tab. Any valid CSS color will work here. */
+	name: "Embed Msgs", 
+	author: "Darii & Dash",
+	description: "cntr + enter to send an embed", 
+	preload: false, 
+	color: "#f44336", 
 	load: () => document.onkeyup = (key) => {
 if (key.ctrlKey && key.which === 13) {
         const channelId = findModule('getChannelId');
