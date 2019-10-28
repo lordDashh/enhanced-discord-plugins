@@ -2,11 +2,11 @@ const Plugin = require('../plugin');
 
 module.exports = new Plugin({
   name: 'Send embeds',
-  author: 'lord_dashh & Darii-Chan',
+  author: 'lord_dashh#9912 & Darii-Chan#8658',
   description: 'Send embedded messages by Ctrl-Enter or prefixing your message with `/embed `',
   preload: false,
   color: '#f44336',
-  load: function() {
+  load: function () {
     // do shit on ctrl-enter
     document.onkeyup = (key) => {
       if (key.ctrlKey && key.which === 13) {
@@ -23,7 +23,7 @@ module.exports = new Plugin({
     }
 
     // patch it up
-    monkeyPatch(findModule('post'), 'post', function(args) {
+    monkeyPatch(findModule('post'), 'post', function (args) {
       try {
         if (args.methodArguments[0].url.endsWith('/messages')) {
           if (args.methodArguments[0].body.content.startsWith('/embed ')) {
@@ -42,7 +42,7 @@ module.exports = new Plugin({
       return args.callOriginalMethod(args.methodArguments);
     });
   },
-  unload: function() {
+  unload: function () {
     document.onkeyup = null;
 
     findModule('post').post.unpatch();
